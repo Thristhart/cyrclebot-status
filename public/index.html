@@ -21,7 +21,15 @@
         key = key.split("cyrclebot:")[1];
         console.log(key, value);
         if(key == "progress") {
-          document.getElementById("playbackProgress").value = value;
+          if(value === null) {
+            document.getElementById("nowPlaying").style.display = "none";
+            document.getElementById("playbackProgress").style.display = "none";
+          }
+          else {
+            document.getElementById("playbackProgress").value = value;
+            document.getElementById("playbackProgress").style.display = "initial";
+            document.getElementById("nowPlaying").style.display = "initial";
+          }
         }
         if(key == "nowPlaying") {
           document.getElementById("nowPlaying").href = value;
