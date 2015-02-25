@@ -11,9 +11,13 @@
           socket.emit("command", "volume " + vol.value);
           console.log("change");
         });
-        var submit = document.getElementById("urlSubmit");
-        submit.addEventListener("submit", function() {
-
+        var submit = document.getElementById("urlForm");
+        submit.addEventListener("submit", function(event) {
+          var document.getElementById("newUrl").value;
+          socket.emit('command', value);
+          document.getElementById("newUrl").value = "";
+          event.preventDefault();
+          return false;
         });
       });
       var socket = io.connect("/", {path: "/cyrclebot/socket.io/"});
@@ -45,6 +49,11 @@
     <a id="nowPlaying"></a>
     <progress max=0 min=1 value=0 id="playbackProgress"></progress>
     <input id="volume" type="range" min="1" max="100" step="1"></input>
-    <input id="newUrl"></input><input id="urlSubmit" type="submit" value="Add to queue"></input>
+    <form id="urlForm">
+      <input id="newUrl"></input><input id="urlSubmit" type="submit" value="Add to queue"></input>
+    </form>
+    <ul id="playQueue">
+
+    </ul>
   </body>
 </html>
