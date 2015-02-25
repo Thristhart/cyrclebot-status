@@ -13,7 +13,7 @@
         });
         var submit = document.getElementById("urlForm");
         submit.addEventListener("submit", function(event) {
-          var document.getElementById("newUrl").value;
+          var value = document.getElementById("newUrl").value;
           socket.emit('command', value);
           document.getElementById("newUrl").value = "";
           event.preventDefault();
